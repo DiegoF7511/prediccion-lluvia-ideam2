@@ -1,4 +1,6 @@
+# -------------------------
 # Python
+# -------------------------
 __pycache__/
 *.pyc
 *.pyo
@@ -6,16 +8,29 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
 .env
 
+# -------------------------
+# MLflow
+# -------------------------
+mlruns/
+
+# -------------------------
+# Model artifacts
+# -------------------------
+*.pkl
+*.png
+mlflow.db
+
+# -------------------------
 # OS
+# -------------------------
 .DS_Store
 Thumbs.db
 
+# -------------------------
 # IDE
+# -------------------------
 .vscode/
 .idea/
-
-# Ignorar datos y modelos (producción profesional)
-data/
-models/
