@@ -1,0 +1,15 @@
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  image: python:3.11
+  script:
+    - pip install -r requirements.txt
+    - echo "Build completed"
+
+test:
+  stage: test
+  script:
+    - echo "Running tests"
