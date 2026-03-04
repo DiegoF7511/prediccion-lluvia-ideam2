@@ -1,15 +1,39 @@
 stages:
-  - build
   - test
+  - build
+  - deploy
 
-build:
-  stage: build
-  image: python:3.11
-  script:
-    - pip install -r requirements.txt
-    - echo "Build completed"
-
+# -------------------------
+# TEST
+# -------------------------
 test:
   stage: test
+  image: python:3.11
   script:
-    - echo "Running tests"
+    - python --version
+    - pip install -r requirements.txt
+    - python -c "print('Tests ejecutados correctamente')"
+
+# -------------------------
+# BUILD DOCKER
+# -------------------------
+build:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  script:
+    - docker build -t prediccion-lluvia .
+  only:
+    - main
+
+# -------------------------
+# DEPLOY
+# -------------------------
+deploy:
+  stage: deploy
+  image: alpine
+  script:
+    - echo "Deploy ejecutado"
+  only:
+    - main
