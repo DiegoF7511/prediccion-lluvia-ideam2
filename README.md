@@ -59,15 +59,20 @@ uv (gestión moderna de dependencias)
 
 🗂️ Estructura del Proyecto
 
-prediccion-lluvia-ideam/
+prediccion-lluvia-ideam2
 │
-├── main.py
+├── app.py              ← aplicación Streamlit
+├── src/                ← lógica del modelo
+├── models/
+│   └── rain_model.pkl
+├── data/
+├── tests/
 ├── Dockerfile
+├── docker-compose.yml
 ├── pyproject.toml
-├── uv.lock
-├── .dockerignore
-├── .python-version
+├── requirements.txt
 └── README.md
+
 
 🐳 Contenerización con Docker
 
