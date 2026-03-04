@@ -1,10 +1,9 @@
-def mensaje():
+##def mensaje():
     return "Hello from prediccion-lluvia-ideam!"
 
-
-def main():
+##def main():
     print(mensaje())
 
 
-if __name__ == "__main__":
+##if __name__ == "__main__":
     main()
