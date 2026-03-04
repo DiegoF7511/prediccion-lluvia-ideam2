@@ -2,6 +2,11 @@ import pandas as pd
 import joblib
 from sklearn.preprocessing import StandardScaler
 import streamlit as st
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "models" / "rain_model.pkl"
+DATA_PATH = BASE_DIR / "data" / "dataset_modelo_estacion_52045020.csv"
 
 st.set_page_config(page_title="Predicción de Lluvia IDEAM 🌧️", layout="centered")
 st.title("Predicción de Lluvia IDEAM 🌧️")
@@ -10,7 +15,7 @@ st.title("Predicción de Lluvia IDEAM 🌧️")
 # 1️⃣ Cargar modelo entrenado
 # -------------------------------
 try:
-    modelo_cargado = joblib.load("models/rain_model.pkl")
+    modelo_cargado = joblib.load(MODEL_PATH)
     st.success("✅ Modelo cargado correctamente")
 except FileNotFoundError:
     st.error("❌ No se encontró el archivo 'rain_model.pkl'. Asegúrate de que esté en la carpeta 'models'.")
@@ -23,7 +28,7 @@ except Exception as e:
 # 2️⃣ Cargar dataset para predicción
 # -------------------------------
 try:
-    df = pd.read_csv("data/dataset_modelo_estacion_52045020.csv")
+    df = pd.read_csv(DATA_PATH)
     st.write("Dataset cargado correctamente. Primeras filas:")
     st.dataframe(df.head())
 except FileNotFoundError:

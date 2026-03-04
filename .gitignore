@@ -34,3 +34,11 @@ Thumbs.db
 # -------------------------
 .vscode/
 .idea/
+# -------------------------
+# Model artifacts
+# -------------------------
+*.pkl
+*.png
+mlflow.db
+
+!models/rain_model.pkl
