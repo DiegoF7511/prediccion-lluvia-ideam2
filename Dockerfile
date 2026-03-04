@@ -17,12 +17,13 @@ COPY pyproject.toml uv.lock ./
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
-# Instalar dependencias en entorno del sistema
-RUN uv pip install --system -r pyproject.toml
+# Instalar dependencias (lockfile)
+RUN uv sync --system --frozen
 
 # Copiar código
 COPY . .
 
 EXPOSE 8501
 
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Render usa PORT; local cae a 8501
+CMD streamlit run app.py --server.address=0.0.0.0 --server.port=${PORT:-8501}
