@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent
 MODEL_PATH = BASE_DIR / "models" / "rain_model.pkl"
 DATA_PATH = BASE_DIR / "data" / "dataset_modelo_estacion_52045020.csv"
 
-st.set_page_config(page_title="Predicción de Lluvia IDEAM 🌧️", layout="centered")
+st.set_page_config(page_title="Predicción de Lluvia IDEAM {%H6m?=8W.J}M#=%0hj1ii+&r(nRzv 🌧️", layout="centered")
 st.title("Predicción de Lluvia IDEAM 🌧️")
 
 # -------------------------------
